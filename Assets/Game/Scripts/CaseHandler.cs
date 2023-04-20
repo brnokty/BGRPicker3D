@@ -13,28 +13,39 @@ public class CaseHandler : MonoBehaviour
     [SerializeField] private Transform cube;
     private int currentCarriableCount = 0;
     private bool isFull;
+    private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
-
-    public void AddCarriable()
+    public void AddCarriable(Rigidbody rb)
     {
         currentCarriableCount++;
-
         if (currentCarriableCount >= requiredCarriableCount && !isFull)
         {
             isFull = true;
             textMeshPro.color = Color.green;
-            PassStage();
+            StartCoroutine(PassStage());
         }
 
+
+        rigidbodies.Add(rb);
         textMeshPro.text = currentCarriableCount + " / " + requiredCarriableCount;
     }
 
 
-    public void PassStage()
+    public IEnumerator PassStage()
     {
+        yield return new WaitForSeconds(0.3f);
+        for (int i = 0; i < rigidbodies.Count; i++)
+        {
+            rigidbodies[i].isKinematic = true;
+        }
+
         leftStrip.DOLocalRotate(new Vector3(180, 270, 270), 0.5f);
         rightStrip.DOLocalRotate(new Vector3(180, 90, 90), 0.5f);
         cube.DOLocalMove(new Vector3(0, -0.25f, 5), 0.5f);
-        cube.DOScale(new Vector3(8, 0.5f, 10), 0.5f).OnComplete(() => { MainManager.Instance.EventRunner.KeepMove(); });
+        cube.DOScale(new Vector3(8, 0.5f, 10), 0.5f);
+        yield return new WaitForSeconds(0.6f);
+        MainManager.Instance.EventRunner.KeepMove();
+        
+        
     }
 }

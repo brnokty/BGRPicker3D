@@ -60,11 +60,16 @@ public class PlayerController : MonoBehaviour
     // Finish Trigger'ına çarpıldığında tetiklenecek olan metot
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Finish"))
+        if (other.CompareTag("Finish") && !isFinished)
         {
             isFinished = true;
             StopPlayer();
-            MainManager.Instance.EventRunner.Win();
+            var objects = Physics.BoxCastAll(throwCollider.bounds.center, throwCollider.transform.localScale,
+                throwCollider.transform.forward,
+                throwCollider.transform.rotation, 2);
+            other.gameObject.GetComponent<FinishHandler>().FinishEffect(objects);
+            // ThrowBalls();
+            // MainManager.Instance.EventRunner.Win();
         }
 
         if (other.CompareTag("CaseEnter"))
@@ -82,8 +87,9 @@ public class PlayerController : MonoBehaviour
 
     private void ThrowBalls()
     {
-        var objects = Physics.BoxCastAll(throwCollider.bounds.center, transform.localScale, transform.forward,
-            transform.rotation, 1);
+        var objects = Physics.BoxCastAll(throwCollider.bounds.center, throwCollider.transform.localScale,
+            throwCollider.transform.forward,
+            throwCollider.transform.rotation, 2);
         for (int i = 0; i < objects.Length; i++)
         {
             if (objects[i].collider.CompareTag("Carriable"))

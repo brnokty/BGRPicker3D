@@ -23,9 +23,15 @@ public class Carriable : MonoBehaviour
     {
         if (other.CompareTag("Case"))
         {
-            tag = "Untagged";
+            // tag = "Untagged";
             var caseHandler = other.GetComponent<CaseHandler>();
-            caseHandler.AddCarriable();
+            caseHandler.AddCarriable(rigidbody);
         }
+
+        // if (other.CompareTag("Finish"))
+        // {
+        //     tag = "Untagged";
+        //     other.GetComponent<FinishHandler>().FinishEffect(transform);
+        // }
     }
 }

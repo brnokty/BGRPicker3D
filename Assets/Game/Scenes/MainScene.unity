@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelManager: {fileID: 208271658}
   GameManager: {fileID: 490333016}
-  UIManager: {fileID: 1917328194}
+  UIManager: {fileID: 281098416}
   EventManager: {fileID: 1081134818}
   EventRunner: {fileID: 975886143}
 --- !u!4 &201128473
@@ -251,7 +251,6 @@ Transform:
   m_Children:
   - {fileID: 208271659}
   - {fileID: 490333017}
-  - {fileID: 1917328195}
   - {fileID: 1081134819}
   - {fileID: 975886144}
   m_Father: {fileID: 0}
@@ -309,16 +308,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9091336120039652185, guid: 1eea251a84e5211448b439f08e70036d,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9091336120039652185, guid: 1eea251a84e5211448b439f08e70036d,
-        type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9091336121027957544, guid: 1eea251a84e5211448b439f08e70036d,
         type: 3}
       propertyPath: m_RootOrder
@@ -381,6 +370,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eea251a84e5211448b439f08e70036d, type: 3}
+--- !u!114 &281098416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9091336121027957547, guid: 1eea251a84e5211448b439f08e70036d,
+    type: 3}
+  m_PrefabInstance: {fileID: 281098415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f481336ee924c4c48b58f7e44135e9ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &490333015
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +466,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 201128473}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1081134817
 GameObject:
@@ -508,7 +509,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 201128473}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1783550059
 GameObject:
@@ -602,49 +603,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1917328193
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1917328195}
-  - component: {fileID: 1917328194}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1917328194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917328193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f481336ee924c4c48b58f7e44135e9ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GamePanel: {fileID: 0}
-  WinPanel: {fileID: 0}
-  FailPanel: {fileID: 0}
---- !u!4 &1917328195
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917328193}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 201128473}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

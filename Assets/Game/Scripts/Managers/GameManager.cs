@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public void CreateLevel(EventArgs args)
     {
-        MainManager.Instance.LevelManager.CreateLevel();
+        // MainManager.Instance.LevelManager.CreateLevel();
     }
 
     public void Win(EventArgs args)
