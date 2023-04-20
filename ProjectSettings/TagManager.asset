@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Carriable
   - CaseEnter
+  - Case
   layers:
   - Default
   - TransparentFX

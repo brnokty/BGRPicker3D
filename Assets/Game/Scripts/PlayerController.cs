@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        MainManager.Instance.EventManager.Register(EventTypes.KeepMove, KeepMove);
     }
 
     void FixedUpdate()
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
         {
             isFinished = true;
             StopPlayer();
+            MainManager.Instance.EventRunner.Win();
         }
 
         if (other.CompareTag("CaseEnter"))
@@ -70,6 +73,28 @@ public class PlayerController : MonoBehaviour
             other.enabled = false;
             isEnteredCase = true;
             print("Entered - " + other.name);
+            ThrowBalls();
         }
+    }
+
+
+    [SerializeField] private Collider throwCollider;
+
+    private void ThrowBalls()
+    {
+        var objects = Physics.BoxCastAll(throwCollider.bounds.center, transform.localScale, transform.forward,
+            transform.rotation, 1);
+        for (int i = 0; i < objects.Length; i++)
+        {
+            if (objects[i].collider.CompareTag("Carriable"))
+            {
+                objects[i].collider.GetComponent<Carriable>().GiveForce();
+            }
+        }
+    }
+
+    private void KeepMove(EventArgs args)
+    {
+        isEnteredCase = false;
     }
 }

@@ -1,18 +1,31 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Carriable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float force = 10f;
+    private Rigidbody rigidbody;
+
+    private void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GiveForce()
     {
-        
+        rigidbody.AddForce(Vector3.forward * force, ForceMode.Impulse);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Case"))
+        {
+            tag = "Untagged";
+            var caseHandler = other.GetComponent<CaseHandler>();
+            caseHandler.AddCarriable();
+        }
     }
 }
