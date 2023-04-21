@@ -36,13 +36,18 @@ public class LevelEditor : EditorWindow
             SerializedProperty property = serializedObject.GetIterator();
             while (property.NextVisible(true))
             {
-               
                 if (property.name != "m_Script")
                 {
                     EditorGUILayout.PropertyField(property, false);
                 }
             }
+
             serializedObject.ApplyModifiedProperties();
+
+            if (GUILayout.Button("Refresh"))
+            {
+                Debug.Log("Butona tıklandı!");
+            }
         }
     }
 }

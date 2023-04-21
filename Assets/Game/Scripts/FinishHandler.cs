@@ -43,5 +43,8 @@ public class FinishHandler : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
             }
         }
+
+        yield return new WaitForSeconds(0.5f);
+        MainManager.Instance.EventRunner.Win();
     }
 }
