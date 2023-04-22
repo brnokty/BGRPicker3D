@@ -7,6 +7,7 @@ public class LevelEditor : EditorWindow
     private string newLevelName = "";
     private string[] levelNames;
     private int selectedLevelIndex = 0;
+    private static LevelManagerSO levelManagerSO;
 
 
     [MenuItem("Window/Level Editor")]
@@ -17,11 +18,35 @@ public class LevelEditor : EditorWindow
 
     private void OnEnable()
     {
-        levelNames = Directory.GetFiles(Application.dataPath + "/Game/ScriptableObjects/Levels", "*.asset");
+        levelNames = Directory.GetFiles("Assets/Game/ScriptableObjects/Levels", "*.asset");
         for (int i = 0; i < levelNames.Length; i++)
         {
             levelNames[i] = Path.GetFileNameWithoutExtension(levelNames[i]);
         }
+
+
+        string path = "Assets/Game/ScriptableObjects/Managers/LevelManagerSO.asset";
+        levelManagerSO = AssetDatabase.LoadAssetAtPath<LevelManagerSO>(path);
+
+
+        UpdateLevelManagerSO();
+
+        EditorUtility.FocusProjectWindow();
+    }
+
+    private void UpdateLevelManagerSO()
+    {
+        levelManagerSO.Levels.Clear();
+        for (int i = 0; i < levelNames.Length; i++)
+        {
+            LevelScriptableObject tempLevelSO =
+                AssetDatabase.LoadAssetAtPath<LevelScriptableObject>("Assets/Game/ScriptableObjects/Levels/" +
+                                                                     levelNames[i] + ".asset");
+            levelManagerSO.Levels.Add(tempLevelSO);
+        }
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     private void OnGUI()
@@ -54,6 +79,8 @@ public class LevelEditor : EditorWindow
                 // Clear the new level name field
                 newLevelName = "";
             }
+
+            UpdateLevelManagerSO();
         }
 
         GUILayout.Space(10f);

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05902d8ca6315e48a1268d912e29048, type: 3}
   m_Name: LevelBGR
   m_EditorClassIdentifier: 
+  LevelObjects: []
+  CarriableObjects: []
   objects: []
   levelCompleteCount: 0

@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2aafff4c31c86b4389bbd416405342d, type: 3}
-  m_Name: LevelManagerSO
+  m_Script: {fileID: 11500000, guid: b05902d8ca6315e48a1268d912e29048, type: 3}
+  m_Name: Level 3
   m_EditorClassIdentifier: 
-  Levels: []
+  LevelObjects: []
+  CarriableObjects: []
+  objects: []
+  levelCompleteCount: 0
