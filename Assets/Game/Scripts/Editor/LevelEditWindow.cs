@@ -11,6 +11,7 @@ public class LevelEditWindow : EditorWindow
     private int selectedObjectIndex = 0;
     private Vector3 objectPosition = Vector3.zero;
     private Quaternion objectRotation = Quaternion.identity;
+    private Vector3 scrollPosition;
 
     private int levelCompleteCount = 0;
 
@@ -22,6 +23,7 @@ public class LevelEditWindow : EditorWindow
 
     private void OnGUI()
     {
+        scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Height(0));
         if (levelScriptableObject == null)
         {
             GUILayout.Label("No level selected.", EditorStyles.boldLabel);
@@ -88,5 +90,6 @@ public class LevelEditWindow : EditorWindow
             EditorUtility.SetDirty(levelScriptableObject);
             AssetDatabase.SaveAssets();
         }
+        GUILayout.EndScrollView();
     }
 }
