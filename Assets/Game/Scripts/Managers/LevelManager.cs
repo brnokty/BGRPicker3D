@@ -7,8 +7,11 @@ using UnityEngine.Serialization;
 public class LevelManager : MonoBehaviour
 {
     [HideInInspector] public int LevelNumber;
-    public List<GameObject> Levels = new List<GameObject>();
-    private GameObject level;
+
+    // public List<GameObject> Levels = new List<GameObject>();
+    public LevelManagerSO LevelManagerSO;
+    private LevelScriptableObject level;
+    [SerializeField] private LevelCreator levelCreator;
 
     private void Awake()
     {
@@ -35,7 +38,9 @@ public class LevelManager : MonoBehaviour
             Destroy(level);
         }
 
-        level = Instantiate(Levels[LevelNumber % Levels.Count], Vector3.zero, Quaternion.identity);
+        // level = Instantiate(Levels[LevelNumber % Levels.Count], Vector3.zero, Quaternion.identity);
+        level = LevelManagerSO.Levels[LevelNumber % LevelManagerSO.Levels.Count];
+        levelCreator.CreateLevel(level);
         MainManager.Instance.EventRunner.LevelStart();
     }
 }

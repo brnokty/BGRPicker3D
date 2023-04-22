@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public void CreateLevel(EventArgs args)
     {
-        // MainManager.Instance.LevelManager.CreateLevel();
+        MainManager.Instance.LevelManager.CreateLevel();
     }
 
     public void Win(EventArgs args)

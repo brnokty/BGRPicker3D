@@ -12,10 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2aafff4c31c86b4389bbd416405342d, type: 3}
   m_Name: LevelManagerSO
   m_EditorClassIdentifier: 
-  Carriables: []
   Levels:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 1580603918e46614ca3554fd118aa87b, type: 2}
+  - {fileID: 11400000, guid: 6c10cb2990b122e449f7d527a4b383bb, type: 2}

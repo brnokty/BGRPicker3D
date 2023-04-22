@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -15,6 +16,10 @@ public class CaseHandler : MonoBehaviour
     private bool isFull;
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
+    private void Start()
+    {
+    }
+
     public void AddCarriable(Rigidbody rb)
     {
         currentCarriableCount++;
@@ -30,6 +35,11 @@ public class CaseHandler : MonoBehaviour
         textMeshPro.text = currentCarriableCount + " / " + requiredCarriableCount;
     }
 
+    public void SetRequiredCarriableCount(int value)
+    {
+        requiredCarriableCount = value;
+        textMeshPro.text = currentCarriableCount + " / " + requiredCarriableCount;
+    }
 
     public IEnumerator PassStage()
     {
@@ -45,7 +55,5 @@ public class CaseHandler : MonoBehaviour
         cube.DOScale(new Vector3(8, 0.5f, 10), 0.5f);
         yield return new WaitForSeconds(0.6f);
         MainManager.Instance.EventRunner.KeepMove();
-        
-        
     }
 }
