@@ -8,13 +8,15 @@ public class UIManager : MonoBehaviour
     public GamePanel GamePanel;
     public WinPanel WinPanel;
     public FailPanel FailPanel;
+    public StartPanel StartPanel;
 
 
     public void Initialize()
     {
-        // GamePanel.Initialize();
-        // WinPanel.Initialize();
-        // FailPanel.Initialize();
+        GamePanel.Initialize();
+        WinPanel.Initialize();
+        FailPanel.Initialize();
+        StartPanel.Initialize();
         MainManager.Instance.EventManager.Register(EventTypes.LevelStart, LevelStart);
         MainManager.Instance.EventManager.Register(EventTypes.Win, LevelSuccess);
         MainManager.Instance.EventManager.Register(EventTypes.Fail, LevelFail);
@@ -23,6 +25,8 @@ public class UIManager : MonoBehaviour
 
     private void LevelStart(EventArgs args)
     {
+        StartPanel.Disappear();
+        GamePanel.Appear();
     }
 
     private void LevelSuccess(EventArgs args)

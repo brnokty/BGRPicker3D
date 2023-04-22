@@ -40,14 +40,38 @@ public class LevelEditWindow : EditorWindow
         }
 
         SerializedObject serializedObject = new SerializedObject(levelScriptableObject);
-        SerializedProperty property = serializedObject.FindProperty("LevelObjects");
-        // while (property.NextVisible(false))
-        // {
+        SerializedProperty LevelObjects = serializedObject.FindProperty("LevelObjects");
 
 
-        EditorGUILayout.PropertyField(property, true);
+        SerializedProperty CarriableObjects = serializedObject.FindProperty("CarriableObjects");
 
-        // }
+
+        EditorGUILayout.PropertyField(LevelObjects, true);
+
+        GUILayout.Label("---Carriable Addable Z Positions---", EditorStyles.boldLabel);
+        var posOne = 0;
+        var posTwo = 0;
+        var lvlObj = levelScriptableObject.LevelObjects;
+        for (int i = 0; i < lvlObj.Count; i++)
+        {
+            if (lvlObj[i].LevelObjectType == LevelObjectType.Platform)
+            {
+                if (i > 0)
+                    posOne += posTwo + lvlObj[i - 1].LevelObjectType == LevelObjectType.Pool
+                        ? 10
+                        : 0;
+
+                posTwo = posOne + lvlObj[i].value;
+
+
+                GUILayout.Label(posOne + " - " + posTwo, EditorStyles.boldLabel);
+                posOne += posTwo;
+            }
+        }
+
+        GUILayout.Label("-----------------------------------", EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(CarriableObjects, true);
+
         serializedObject.ApplyModifiedProperties();
 
         GUILayout.Space(10f);

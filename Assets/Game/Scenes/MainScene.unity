@@ -471,6 +471,10 @@ MonoBehaviour:
   - {fileID: 5649685089335778829, guid: cc90d8bb2c9671f479856b441870385c, type: 3}
   - {fileID: 3140139523916509267, guid: 09fe51b3a28c401498f65961489401a0, type: 3}
   - {fileID: 790098488840941129, guid: f8fdd1e9a05f7af47a731c50ffcb637d, type: 3}
+  carriableObjects:
+  - {fileID: 1672242342301008401, guid: 397fd195334ef90489fb90159815a23b, type: 3}
+  - {fileID: 1672242342301008401, guid: 06151d60b9cf28f459f22d715c33a84a, type: 3}
+  - {fileID: 1672242342301008401, guid: eae081e516689da44b1483aab33fb60c, type: 3}
 --- !u!4 &782009733
 Transform:
   m_ObjectHideFlags: 0

@@ -155,12 +155,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eef1c2cd5dd65e4da104e70c3c8c354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpSpeed: 5
-  speed: 5
+  speed: 4
   horizontalSpeed: 5
   maxHorizontalDistance: 3
   screenSpaceJoytick: {fileID: 462735808}
   throwCollider: {fileID: 2324736668298759191}
+  carriableLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!54 &1254338961
 Rigidbody:
   m_ObjectHideFlags: 0

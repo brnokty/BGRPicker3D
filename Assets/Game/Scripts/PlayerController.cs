@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float lerpSpeed = 5f;
     public float speed = 5f;
     public float horizontalSpeed = 5f;
     public float maxHorizontalDistance = 3f;
@@ -21,14 +20,22 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rigidbody;
 
+    [SerializeField] private float failTime = 0.5f;
+    [SerializeField] private Collider throwCollider;
+    [SerializeField] private LayerMask carriableLayerMask;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         MainManager.Instance.EventManager.Register(EventTypes.KeepMove, KeepMove);
+        MainManager.Instance.EventManager.Register(EventTypes.LevelStart, StartPlayer);
     }
 
     void FixedUpdate()
     {
+        if (!isStarted)
+            return;
+
         if (!isFinished && !isEnteredCase)
         {
             MovePlayer();
@@ -38,17 +45,19 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer()
     {
         var velocity = rigidbody.velocity;
-        velocity = new Vector3(screenSpaceJoytick.Horizontal * horizontalSpeed, velocity.y,
-            speed);
+        velocity = new Vector3(screenSpaceJoytick.Horizontal * horizontalSpeed, 0, speed);
         rigidbody.velocity = velocity;
 
-        Vector3 position;
-        position = new Vector3(
-            Mathf.Clamp(rigidbody.position.x, -maxHorizontalDistance,
-                maxHorizontalDistance),
-            (position = rigidbody.position).y,
+        Vector3 position = rigidbody.position;
+        position = new Vector3(Mathf.Clamp(rigidbody.position.x, -maxHorizontalDistance, maxHorizontalDistance), 0,
             position.z);
+        // position = new Vector3(Mathf.Clamp(rigidbody.position.x, -maxHorizontalDistance, maxHorizontalDistance), (position = rigidbody.position).y, position.z);
         rigidbody.position = position;
+    }
+
+    private void StartPlayer(EventArgs args)
+    {
+        isStarted = true;
     }
 
     private void StopPlayer()
@@ -57,7 +66,6 @@ public class PlayerController : MonoBehaviour
         rigidbody.angularVelocity = Vector3.zero;
     }
 
-    // Finish Trigger'ına çarpıldığında tetiklenecek olan metot
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Finish") && !isFinished)
@@ -77,19 +85,25 @@ public class PlayerController : MonoBehaviour
             StopPlayer();
             other.enabled = false;
             isEnteredCase = true;
-            print("Entered - " + other.name);
-            ThrowBalls();
+            ThrowBalls(other.transform.parent.GetComponent<CaseHandler>());
         }
     }
 
 
-    [SerializeField] private Collider throwCollider;
-
-    private void ThrowBalls()
+    private void ThrowBalls(CaseHandler caseHandler)
     {
         var objects = Physics.BoxCastAll(throwCollider.bounds.center, throwCollider.transform.localScale,
             throwCollider.transform.forward,
-            throwCollider.transform.rotation, 2);
+            throwCollider.transform.rotation, 2, carriableLayerMask);
+
+        print("Count ->" + objects.Length);
+
+        if (objects.Length <= 0 || objects.Length < caseHandler.requiredCarriableCount)
+        {
+            StartCoroutine(WaitAndFail(failTime));
+            return;
+        }
+
         for (int i = 0; i < objects.Length; i++)
         {
             if (objects[i].collider.CompareTag("Carriable"))
@@ -97,6 +111,12 @@ public class PlayerController : MonoBehaviour
                 objects[i].collider.GetComponent<Carriable>().GiveForce();
             }
         }
+    }
+
+    private IEnumerator WaitAndFail(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        MainManager.Instance.EventRunner.Fail();
     }
 
     private void KeepMove(EventArgs args)

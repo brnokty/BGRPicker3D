@@ -9,6 +9,13 @@ public enum LevelObjectType
     Pool
 }
 
+public enum CarriableObjectType
+{
+    Capsule,
+    Cube,
+    Sphere
+}
+
 
 [Serializable]
 public struct LevelObject
@@ -17,11 +24,20 @@ public struct LevelObject
     public int value;
 }
 
+[Serializable]
+public struct CarriableObject
+{
+    public CarriableObjectType CarriableObjectType;
+    public Vector3 position;
+    public Vector3 rotation;
+}
+
 
 [CreateAssetMenu(fileName = "New Level", menuName = "Level")]
 public class LevelScriptableObject : ScriptableObject
 {
     [SerializeField] public List<LevelObject> LevelObjects = new List<LevelObject>();
+    [SerializeField] public List<CarriableObject> CarriableObjects = new List<CarriableObject>();
 
 
     public List<GameObject> objects = new List<GameObject>();

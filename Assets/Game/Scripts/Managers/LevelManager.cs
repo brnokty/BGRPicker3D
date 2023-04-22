@@ -41,6 +41,5 @@ public class LevelManager : MonoBehaviour
         // level = Instantiate(Levels[LevelNumber % Levels.Count], Vector3.zero, Quaternion.identity);
         level = LevelManagerSO.Levels[LevelNumber % LevelManagerSO.Levels.Count];
         levelCreator.CreateLevel(level);
-        MainManager.Instance.EventRunner.LevelStart();
     }
 }

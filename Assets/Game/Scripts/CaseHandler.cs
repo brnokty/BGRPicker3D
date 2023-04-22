@@ -13,7 +13,7 @@ public class CaseHandler : MonoBehaviour
     [SerializeField] private Transform rightStrip;
     [SerializeField] private Transform cube;
     private int currentCarriableCount = 0;
-    private bool isFull;
+    public bool isFull;
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
     private void Start()
