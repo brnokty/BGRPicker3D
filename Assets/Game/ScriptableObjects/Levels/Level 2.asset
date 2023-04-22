@@ -12,7 +12,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05902d8ca6315e48a1268d912e29048, type: 3}
   m_Name: Level 2
   m_EditorClassIdentifier: 
-  LevelObjects: []
-  CarriableObjects: []
+  LevelObjects:
+  - LevelObjectType: 0
+    value: 20
+  - LevelObjectType: 1
+    value: 5
+  - LevelObjectType: 0
+    value: 20
+  - LevelObjectType: 1
+    value: 10
+  - LevelObjectType: 0
+    value: 20
+  CarriableObjects:
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 5}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 6}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 7}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 1
+    position: {x: 2, y: 0, z: 9}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 1
+    position: {x: 2, y: 0, z: 10}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 2
+    position: {x: -2, y: 0, z: 12}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 2
+    position: {x: -2, y: 0, z: 13}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 22}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 23}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 24}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 25}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 26}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 1, y: 0, z: 27}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 2, y: 0, z: 28}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 3, y: 0, z: 29}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 2, y: 0, z: 30}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 1, y: 0, z: 31}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 32}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: -1, y: 0, z: 33}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: -2, y: 0, z: 34}
+    rotation: {x: 0, y: 0, z: 0}
   objects: []
   levelCompleteCount: 0
