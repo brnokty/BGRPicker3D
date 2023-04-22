@@ -39,15 +39,18 @@ public class LevelCreator : MonoBehaviour
             var cObj = level.CarriableObjects[i];
             if (cObj.CarriableObjectType == CarriableObjectType.Capsule)
             {
-                var capsule = Instantiate(carriableObjects[0], cObj.position, Quaternion.Euler(cObj.rotation));
+                var capsule = Instantiate(carriableObjects[0], cObj.position + new Vector3(0, 0.2f, 0),
+                    Quaternion.Euler(cObj.rotation));
             }
             else if (cObj.CarriableObjectType == CarriableObjectType.Cube)
             {
-                var cube = Instantiate(carriableObjects[1], cObj.position, Quaternion.Euler(cObj.rotation));
+                var cube = Instantiate(carriableObjects[1], cObj.position + new Vector3(0, 0.2f, 0),
+                    Quaternion.Euler(cObj.rotation));
             }
             else
             {
-                var sphere = Instantiate(carriableObjects[2], cObj.position, Quaternion.Euler(cObj.rotation));
+                var sphere = Instantiate(carriableObjects[2], cObj.position + new Vector3(0, 0.2f, 0),
+                    Quaternion.Euler(cObj.rotation));
             }
         }
     }

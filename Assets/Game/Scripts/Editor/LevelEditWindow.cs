@@ -56,16 +56,14 @@ public class LevelEditWindow : EditorWindow
         {
             if (lvlObj[i].LevelObjectType == LevelObjectType.Platform)
             {
-                if (i > 0)
-                    posOne += posTwo + lvlObj[i - 1].LevelObjectType == LevelObjectType.Pool
-                        ? 10
-                        : 0;
+                if (i > 0 && lvlObj[i - 1].LevelObjectType == LevelObjectType.Pool)
+                    posOne += 10;
 
                 posTwo = posOne + lvlObj[i].value;
 
 
                 GUILayout.Label(posOne + " - " + posTwo, EditorStyles.boldLabel);
-                posOne += posTwo;
+                posOne = posTwo;
             }
             else
             {
