@@ -85,7 +85,7 @@ public class LevelEditor : EditorWindow
 
         GUILayout.Space(10f);
 
-        GUILayout.Label("Existing Levels", EditorStyles.boldLabel);
+        GUILayout.Label("Levels", EditorStyles.boldLabel);
 
         selectedLevelIndex = EditorGUILayout.Popup("Select Level", selectedLevelIndex, levelNames);
 

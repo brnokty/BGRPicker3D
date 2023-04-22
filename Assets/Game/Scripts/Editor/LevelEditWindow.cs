@@ -80,10 +80,10 @@ public class LevelEditWindow : EditorWindow
 
         GUILayout.Space(10f);
 
-        GUILayout.Label("Level Complete Count", EditorStyles.boldLabel);
-
-        levelScriptableObject.levelCompleteCount =
-            EditorGUILayout.IntField("Level Complete Count", levelScriptableObject.levelCompleteCount);
+        // GUILayout.Label("Level Complete Count", EditorStyles.boldLabel);
+        //
+        // levelScriptableObject.levelCompleteCount =
+        //     EditorGUILayout.IntField("Level Complete Count", levelScriptableObject.levelCompleteCount);
 
         if (GUILayout.Button("Save Level"))
         {

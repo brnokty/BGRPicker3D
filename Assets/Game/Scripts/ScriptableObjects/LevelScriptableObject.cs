@@ -43,7 +43,7 @@ public class LevelScriptableObject : ScriptableObject
     public List<GameObject> objects = new List<GameObject>();
 
 
-    public int levelCompleteCount = 0;
+    // public int levelCompleteCount = 0;
 
     public void AddObject(GameObject obj)
     {
@@ -87,10 +87,10 @@ public class LevelScriptableObject : ScriptableObject
         }
     }
 
-    public void UpdateLevelCompleteCount(int newCount)
-    {
-        levelCompleteCount = newCount;
-    }
+    // public void UpdateLevelCompleteCount(int newCount)
+    // {
+    //     levelCompleteCount = newCount;
+    // }
 
     public void UpdateLevel()
     {
