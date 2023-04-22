@@ -67,6 +67,10 @@ public class LevelEditWindow : EditorWindow
                 GUILayout.Label(posOne + " - " + posTwo, EditorStyles.boldLabel);
                 posOne += posTwo;
             }
+            else
+            {
+                GUILayout.Label("Pool Required Carriable - " + lvlObj[i].value, EditorStyles.boldLabel);
+            }
         }
 
         GUILayout.Label("-----------------------------------", EditorStyles.boldLabel);

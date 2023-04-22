@@ -10,7 +10,7 @@ public class LevelEditor : EditorWindow
     private static LevelManagerSO levelManagerSO;
 
 
-    [MenuItem("Window/Level Editor")]
+    [MenuItem("Tools/Level Editor")]
     public static void ShowWindow()
     {
         GetWindow<LevelEditor>("Level Editor");
