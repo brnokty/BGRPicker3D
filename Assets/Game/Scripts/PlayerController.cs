@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
             StopPlayer();
             var objects = Physics.BoxCastAll(throwCollider.bounds.center, throwCollider.transform.localScale,
                 throwCollider.transform.forward,
-                throwCollider.transform.rotation, 2);
+                throwCollider.transform.rotation, 2,carriableLayerMask);
             other.gameObject.GetComponent<FinishHandler>().FinishEffect(objects);
             // ThrowBalls();
             // MainManager.Instance.EventRunner.Win();

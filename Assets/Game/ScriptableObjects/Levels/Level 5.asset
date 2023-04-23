@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b05902d8ca6315e48a1268d912e29048, type: 3}
-  m_Name: Level 3
+  m_Name: Level 5
   m_EditorClassIdentifier: 
   LevelObjects:
   - LevelObjectType: 0
-    value: 25
+    value: 20
   - LevelObjectType: 1
-    value: 10
+    value: 5
   - LevelObjectType: 0
     value: 25
   - LevelObjectType: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
   - LevelObjectType: 1
     value: 15
   - LevelObjectType: 0
-    value: 10
+    value: 20
   CarriableObjects:
   - CarriableObjectType: 0
     position: {x: 0, y: 0, z: 5}
@@ -43,14 +43,14 @@ MonoBehaviour:
   - CarriableObjectType: 0
     position: {x: 0, y: 0, z: 9}
     rotation: {x: 0, y: 0, z: 0}
-  - CarriableObjectType: 1
-    position: {x: 2, y: 0, z: 10}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 10}
+    rotation: {x: 0, y: 0, z: 0}
+  - CarriableObjectType: 0
+    position: {x: 0, y: 0, z: 11}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
-    position: {x: 2, y: 0, z: 11}
-    rotation: {x: 0, y: 0, z: 0}
-  - CarriableObjectType: 1
-    position: {x: 2, y: 0, z: 12}
+    position: {x: -2, y: 0, z: 32}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
     position: {x: -2, y: 0, z: 33}

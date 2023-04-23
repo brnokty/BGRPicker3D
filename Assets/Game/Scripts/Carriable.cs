@@ -7,6 +7,7 @@ public class Carriable : MonoBehaviour
 {
     public float force = 10f;
     private Rigidbody rigidbody;
+    private bool isUsed;
 
     private void Start()
     {
@@ -21,9 +22,10 @@ public class Carriable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Case"))
+        if (other.CompareTag("Case") && !isUsed)
         {
             // tag = "Untagged";
+            isUsed = true;
             var caseHandler = other.GetComponent<CaseHandler>();
             caseHandler.AddCarriable(rigidbody);
         }

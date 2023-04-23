@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6696740147770057529}
   - component: {fileID: 7548066690683030970}
   m_Layer: 12
-  m_Name: Carriable
+  m_Name: SphereCarriable
   m_TagString: Carriable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47fc90b91c1610f4f963b720efe01bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3
+  force: 4

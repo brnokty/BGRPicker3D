@@ -52,7 +52,7 @@ public class CaseHandler : MonoBehaviour
         leftStrip.DOLocalRotate(new Vector3(180, 270, 270), 0.5f);
         rightStrip.DOLocalRotate(new Vector3(180, 90, 90), 0.5f);
         cube.DOLocalMove(new Vector3(0, -0.25f, 5), 0.5f);
-        cube.DOScale(new Vector3(8, 0.5f, 10), 0.5f);
+        cube.DOScale(new Vector3(8, 0.5f, 10.2f), 0.5f);
         yield return new WaitForSeconds(0.6f);
         MainManager.Instance.EventRunner.KeepMove();
     }
