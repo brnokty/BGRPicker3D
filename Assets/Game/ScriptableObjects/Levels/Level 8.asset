@@ -14,138 +14,182 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelObjects:
   - LevelObjectType: 0
-    value: 20
+    value: 12
   - LevelObjectType: 1
     value: 5
   - LevelObjectType: 0
-    value: 25
+    value: 23
   - LevelObjectType: 1
     value: 10
   - LevelObjectType: 0
-    value: 25
+    value: 30
   - LevelObjectType: 1
     value: 15
   - LevelObjectType: 0
+    value: 40
+  - LevelObjectType: 1
     value: 20
+  - LevelObjectType: 0
+    value: 10
   CarriableObjects:
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 5}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 6}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 7}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 8}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 9}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 10}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 11}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -2, y: 0, z: 32}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -2, y: 0, z: 33}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -2, y: 0, z: 34}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: -2, y: 0, z: 35}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 40}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 41}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 42}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 43}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 46}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 47}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 48}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 49}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 0
+    randomX: 0
     position: {x: 0, y: 0, z: 50}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: 2, y: 0, z: 51}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -2, y: 0, z: 70}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -1, y: 0, z: 71}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -2, y: 0, z: 72}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -2, y: 0, z: 73}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: -1, y: 0, z: 74}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: 0, y: 0, z: 75}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: 1, y: 0, z: 76}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: 1, y: 0, z: 77}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: 1, y: 0, z: 78}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 1
+    randomX: 0
     position: {x: 1, y: 0, z: 79}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 80}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 81}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 0, y: 0, z: 82}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 1, y: 0, z: 83}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 84}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 85}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 86}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 1, y: 0, z: 87}
     rotation: {x: 0, y: 0, z: 0}
   - CarriableObjectType: 2
+    randomX: 0
     position: {x: 2, y: 0, z: 88}
     rotation: {x: 0, y: 0, z: 0}
   objects: []
