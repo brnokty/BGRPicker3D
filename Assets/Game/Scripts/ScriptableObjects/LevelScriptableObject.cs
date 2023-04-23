@@ -28,6 +28,7 @@ public struct LevelObject
 public struct CarriableObject
 {
     public CarriableObjectType CarriableObjectType;
+    public bool randomX;
     public Vector3 position;
     public Vector3 rotation;
 }

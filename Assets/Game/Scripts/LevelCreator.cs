@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelCreator : MonoBehaviour
 {
@@ -39,17 +40,20 @@ public class LevelCreator : MonoBehaviour
             var cObj = level.CarriableObjects[i];
             if (cObj.CarriableObjectType == CarriableObjectType.Capsule)
             {
-                var capsule = Instantiate(carriableObjects[0], cObj.position + new Vector3(0, 0.2f, 0),
+                var capsule = Instantiate(carriableObjects[0],
+                    cObj.position + new Vector3((cObj.randomX ? Random.Range(-2f, 2f) : 0), 0.2f, 0),
                     Quaternion.Euler(cObj.rotation));
             }
             else if (cObj.CarriableObjectType == CarriableObjectType.Cube)
             {
-                var cube = Instantiate(carriableObjects[1], cObj.position + new Vector3(0, 0.2f, 0),
+                var cube = Instantiate(carriableObjects[1],
+                    cObj.position + new Vector3((cObj.randomX ? Random.Range(-2f, 2f) : 0), 0.2f, 0),
                     Quaternion.Euler(cObj.rotation));
             }
             else
             {
-                var sphere = Instantiate(carriableObjects[2], cObj.position + new Vector3(0, 0.2f, 0),
+                var sphere = Instantiate(carriableObjects[2],
+                    cObj.position + new Vector3((cObj.randomX ? Random.Range(-2f, 2f) : 0), 0.2f, 0),
                     Quaternion.Euler(cObj.rotation));
             }
         }
