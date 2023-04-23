@@ -6,11 +6,26 @@ using UnityEngine;
 [RequireComponent(typeof(CanvasGroup))]
 public class Panel : MonoBehaviour
 {
-    protected CanvasGroup canvasGroup;
+    #region INSPECTOR PROPERTIES
+
     public float appearTime;
     public float disappearTime;
 
+    #endregion
+
+    #region PUBLIC PROPERTIES
+
+    [HideInInspector] public CanvasGroup canvasGroup;
+
+    #endregion
+
+    #region PRIVATE PROPERTIES
+
     private Coroutine appearDisappearCoroutine;
+
+    #endregion
+
+    #region PUBLIC METHODS
 
     public virtual void Initialize()
     {
@@ -42,14 +57,6 @@ public class Panel : MonoBehaviour
         appearDisappearCoroutine = StartCoroutine(DisappearRoutine());
     }
 
-    private void StopAppearDisappearCoroutine()
-    {
-        if (appearDisappearCoroutine != null)
-        {
-            StopCoroutine(appearDisappearCoroutine);
-        }
-    }
-
     public IEnumerator DisappearRoutine()
     {
         while (canvasGroup.alpha > 0)
@@ -61,4 +68,18 @@ public class Panel : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
     }
+
+    #endregion
+
+    #region PRIVATE METHODS
+
+    private void StopAppearDisappearCoroutine()
+    {
+        if (appearDisappearCoroutine != null)
+        {
+            StopCoroutine(appearDisappearCoroutine);
+        }
+    }
+
+    #endregion
 }

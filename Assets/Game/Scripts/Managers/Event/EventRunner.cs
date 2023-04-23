@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EventRunner : MonoBehaviour
 {
+    #region PUBLIC METHODS
+
     public void GameStart()
     {
         MainManager.Instance.EventManager.InvokeEvent(EventTypes.GameStart, new EventArgs());
@@ -14,12 +16,6 @@ public class EventRunner : MonoBehaviour
     public void LevelStart()
     {
         MainManager.Instance.EventManager.InvokeEvent(EventTypes.LevelStart, new IntArgs(PlayerPrefs.GetInt("Level")));
-    }
-
-
-    public void BouncedOnTrampoline(int trampolineNumber)
-    {
-        MainManager.Instance.EventManager.InvokeEvent(EventTypes.BouncedOnTrampoline, new IntArgs(trampolineNumber));
     }
 
     public void KeepMove()
@@ -36,4 +32,6 @@ public class EventRunner : MonoBehaviour
     {
         MainManager.Instance.EventManager.InvokeEvent(EventTypes.Win);
     }
+
+    #endregion
 }

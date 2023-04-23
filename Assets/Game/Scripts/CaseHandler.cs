@@ -7,18 +7,30 @@ using UnityEngine;
 
 public class CaseHandler : MonoBehaviour
 {
-    public int requiredCarriableCount = 10;
+    #region INSPECTOR PROPERTIES
+
     [SerializeField] private TextMeshPro textMeshPro;
     [SerializeField] private Transform leftStrip;
     [SerializeField] private Transform rightStrip;
     [SerializeField] private Transform cube;
+
+    #endregion
+
+    #region PUBLIC PROPERTIES
+
+    [HideInInspector] public int requiredCarriableCount = 10;
+    [HideInInspector] public bool isFull;
+
+    #endregion
+
+    #region PRIVATE PROPERTIES
+
     private int currentCarriableCount = 0;
-    public bool isFull;
     private List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
-    private void Start()
-    {
-    }
+    #endregion
+
+    #region PUBLIC METHODS
 
     public void AddCarriable(Rigidbody rb)
     {
@@ -56,4 +68,6 @@ public class CaseHandler : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         MainManager.Instance.EventRunner.KeepMove();
     }
+
+    #endregion
 }

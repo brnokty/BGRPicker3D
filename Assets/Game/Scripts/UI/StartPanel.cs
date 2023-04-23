@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class StartPanel : Panel
 {
+    #region PRIVATE PROPERTIES
+
     private bool isStarted;
+
+    #endregion
+
+    #region PRIVATE METHODS
 
     private void Update()
     {
@@ -16,4 +22,6 @@ public class StartPanel : Panel
             enabled = false;
         }
     }
+
+    #endregion
 }

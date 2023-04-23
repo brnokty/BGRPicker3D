@@ -5,10 +5,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 5f;
-    public float horizontalSpeed = 5f;
-    public float maxHorizontalDistance = 3f;
-    public ScreenSpaceJoytick screenSpaceJoytick;
+    #region INSPECTOR PROPERTIES
+
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float horizontalSpeed = 5f;
+    [SerializeField] private float maxHorizontalDistance = 3f;
+    [SerializeField] private ScreenSpaceJoytick screenSpaceJoytick;
+
+    [SerializeField] private float failTime = 0.5f;
+    [SerializeField] private Collider throwCollider;
+    [SerializeField] private LayerMask carriableLayerMask;
+
+    #endregion
+
+    #region PRIVATE PROPERTIES
+
     private bool isFinished = false;
     private bool isStarted = false;
     private bool isEnteredCase = false;
@@ -16,13 +27,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 mouseStartPosition;
     private Vector3 lastMouseStartPosition;
     private float horizontalDelta = 0f;
-
-
     private Rigidbody rigidbody;
 
-    [SerializeField] private float failTime = 0.5f;
-    [SerializeField] private Collider throwCollider;
-    [SerializeField] private LayerMask carriableLayerMask;
+    #endregion
+
+    #region UNITY METHODS
 
     void Start()
     {
@@ -42,6 +51,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish") && !isFinished)
+        {
+            isFinished = true;
+            StopPlayer();
+            var objects = Physics.BoxCastAll(throwCollider.bounds.center, throwCollider.transform.localScale,
+                throwCollider.transform.forward,
+                throwCollider.transform.rotation, 2, carriableLayerMask);
+            other.gameObject.GetComponent<FinishHandler>().FinishEffect(objects);
+        }
+
+        if (other.CompareTag("CaseEnter"))
+        {
+            StopPlayer();
+            other.enabled = false;
+            isEnteredCase = true;
+            ThrowBalls(other.transform.parent.GetComponent<CaseHandler>());
+        }
+    }
+
+    #endregion
+
+    #region PRIVATE METHODS
+
     private void MovePlayer()
     {
         var velocity = rigidbody.velocity;
@@ -51,7 +85,6 @@ public class PlayerController : MonoBehaviour
         Vector3 position = rigidbody.position;
         position = new Vector3(Mathf.Clamp(rigidbody.position.x, -maxHorizontalDistance, maxHorizontalDistance), 0,
             position.z);
-        // position = new Vector3(Mathf.Clamp(rigidbody.position.x, -maxHorizontalDistance, maxHorizontalDistance), (position = rigidbody.position).y, position.z);
         rigidbody.position = position;
     }
 
@@ -65,30 +98,6 @@ public class PlayerController : MonoBehaviour
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Finish") && !isFinished)
-        {
-            isFinished = true;
-            StopPlayer();
-            var objects = Physics.BoxCastAll(throwCollider.bounds.center, throwCollider.transform.localScale,
-                throwCollider.transform.forward,
-                throwCollider.transform.rotation, 2,carriableLayerMask);
-            other.gameObject.GetComponent<FinishHandler>().FinishEffect(objects);
-            // ThrowBalls();
-            // MainManager.Instance.EventRunner.Win();
-        }
-
-        if (other.CompareTag("CaseEnter"))
-        {
-            StopPlayer();
-            other.enabled = false;
-            isEnteredCase = true;
-            ThrowBalls(other.transform.parent.GetComponent<CaseHandler>());
-        }
-    }
-
 
     private void ThrowBalls(CaseHandler caseHandler)
     {
@@ -123,4 +132,6 @@ public class PlayerController : MonoBehaviour
     {
         isEnteredCase = false;
     }
+
+    #endregion
 }

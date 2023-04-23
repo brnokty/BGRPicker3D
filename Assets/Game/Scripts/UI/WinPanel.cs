@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class WinPanel : Panel
 {
+    #region PUBLIC METHODS
+
     public void ButtonClick()
     {
         MainManager.Instance.GameManager.Restart();
     }
+
+    #endregion
 }

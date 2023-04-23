@@ -7,13 +7,8 @@ public class LevelEditWindow : EditorWindow
     private LevelScriptableObject levelScriptableObject;
 
 
-    private string[] objectNames;
-    private int selectedObjectIndex = 0;
-    private Vector3 objectPosition = Vector3.zero;
-    private Quaternion objectRotation = Quaternion.identity;
     private Vector3 scrollPosition;
 
-    private int levelCompleteCount = 0;
 
     public void DisplayLevel(LevelScriptableObject levelScriptableObject)
     {
@@ -34,12 +29,6 @@ public class LevelEditWindow : EditorWindow
 
         GUILayout.Space(10f);
 
-        GUILayout.Label("Level Objects", EditorStyles.boldLabel);
-
-        for (int i = 0; i < levelScriptableObject.objects.Count; i++)
-        {
-            GUILayout.Label(levelScriptableObject.objects[i].name);
-        }
 
         SerializedObject serializedObject = new SerializedObject(levelScriptableObject);
         SerializedProperty LevelObjects = serializedObject.FindProperty("LevelObjects");
@@ -80,16 +69,12 @@ public class LevelEditWindow : EditorWindow
 
         GUILayout.Space(10f);
 
-        // GUILayout.Label("Level Complete Count", EditorStyles.boldLabel);
-        //
-        // levelScriptableObject.levelCompleteCount =
-        //     EditorGUILayout.IntField("Level Complete Count", levelScriptableObject.levelCompleteCount);
-
         if (GUILayout.Button("Save Level"))
         {
             EditorUtility.SetDirty(levelScriptableObject);
             AssetDatabase.SaveAssets();
         }
+
         GUILayout.EndScrollView();
     }
 }

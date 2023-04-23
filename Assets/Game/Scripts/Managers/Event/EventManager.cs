@@ -5,20 +5,34 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
+#region ENUMS
+
 public enum EventTypes
 {
     LevelStart,
     GameStart,
     Win,
     Fail,
-    KeepMove,
-    BouncedOnTrampoline
+    KeepMove
 }
+
+#endregion
 
 public class EventManager : MonoBehaviour
 {
+    #region PUBLIC PROPERTIES
+
     public Dictionary<EventTypes, UnityAction<EventArgs>> events = new Dictionary<EventTypes, UnityAction<EventArgs>>();
+
+    #endregion
+
+    #region PRIVATE PROPERTIES
+
     private UnityAction<EventArgs> onStationary;
+
+    #endregion
+
+    #region PUBLIC METHODS
 
     public void Initialize()
     {
@@ -43,4 +57,6 @@ public class EventManager : MonoBehaviour
     {
         events[eventType]?.Invoke(eventArgs);
     }
+
+    #endregion
 }

@@ -6,9 +6,14 @@ using Random = UnityEngine.Random;
 
 public class LevelCreator : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     [SerializeField] private List<GameObject> levelObjects = new List<GameObject>();
     [SerializeField] private List<GameObject> carriableObjects = new List<GameObject>();
 
+    #endregion
+
+    #region PUBLIC METHODS
 
     public void CreateLevel(LevelScriptableObject level)
     {
@@ -58,4 +63,6 @@ public class LevelCreator : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }

@@ -63,20 +63,16 @@ public class LevelEditor : EditorWindow
         {
             if (newLevelName != "")
             {
-                // Create a new empty ScriptableObject with a Level component attached to it
                 LevelScriptableObject levelScriptable = ScriptableObject.CreateInstance<LevelScriptableObject>();
                 levelScriptable.name = newLevelName;
 
-                // Save the new LevelObject as an asset in the Levels folder
                 AssetDatabase.CreateAsset(levelScriptable,
                     "Assets/Game/ScriptableObjects/Levels/" + newLevelName + ".asset");
                 AssetDatabase.SaveAssets();
 
-                // Add the new level to the list and select it
                 ArrayUtility.Add(ref levelNames, newLevelName);
                 selectedLevelIndex = levelNames.Length - 1;
 
-                // Clear the new level name field
                 newLevelName = "";
             }
 
@@ -92,13 +88,11 @@ public class LevelEditor : EditorWindow
 
         if (GUILayout.Button("Open Level"))
         {
-            // Get the selected level ScriptableObject
             LevelScriptableObject levelScriptableObject =
                 AssetDatabase.LoadAssetAtPath<LevelScriptableObject>("Assets/Game/ScriptableObjects/Levels/" +
                                                                      levelNames[selectedLevelIndex] + ".asset");
 
 
-            // Open the level in a new window
             LevelEditWindow levelEditWindow = EditorWindow.GetWindow<LevelEditWindow>("Level Edit Window");
             levelEditWindow.DisplayLevel(levelScriptableObject);
         }

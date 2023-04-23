@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     public GamePanel GamePanel;
     public WinPanel WinPanel;
     public FailPanel FailPanel;
     public StartPanel StartPanel;
 
+    #endregion
+
+    #region PUBLIC METHODS
 
     public void Initialize()
     {
@@ -20,8 +25,11 @@ public class UIManager : MonoBehaviour
         MainManager.Instance.EventManager.Register(EventTypes.LevelStart, LevelStart);
         MainManager.Instance.EventManager.Register(EventTypes.Win, LevelSuccess);
         MainManager.Instance.EventManager.Register(EventTypes.Fail, LevelFail);
-        // MainManager.Instance.EventManager.Register(EventTypes.BouncedOnTrampoline, BouncedOnTrampoline);
     }
+
+    #endregion
+
+    #region PRIVATE METHODS
 
     private void LevelStart(EventArgs args)
     {
@@ -41,9 +49,5 @@ public class UIManager : MonoBehaviour
         FailPanel.Appear();
     }
 
-    private void BouncedOnTrampoline(EventArgs args)
-    {
-        int number = (args as IntArgs).value;
-        GamePanel.SetProgressBarCurrentCount(number);
-    }
+    #endregion
 }

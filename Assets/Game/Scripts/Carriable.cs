@@ -5,18 +5,24 @@ using UnityEngine;
 
 public class Carriable : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     public float force = 10f;
+
+    #endregion
+
+    #region PRIVATE PROPERTIES
+
     private Rigidbody rigidbody;
     private bool isUsed;
+
+    #endregion
+
+    #region UNITY METHODS
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-    }
-
-    public void GiveForce()
-    {
-        rigidbody.AddForce(Vector3.forward * force, ForceMode.Impulse);
     }
 
 
@@ -29,11 +35,16 @@ public class Carriable : MonoBehaviour
             var caseHandler = other.GetComponent<CaseHandler>();
             caseHandler.AddCarriable(rigidbody);
         }
-
-        // if (other.CompareTag("Finish"))
-        // {
-        //     tag = "Untagged";
-        //     other.GetComponent<FinishHandler>().FinishEffect(transform);
-        // }
     }
+
+    #endregion
+
+    #region PUBLIC METHODS
+
+    public void GiveForce()
+    {
+        rigidbody.AddForce(Vector3.forward * force, ForceMode.Impulse);
+    }
+
+    #endregion
 }

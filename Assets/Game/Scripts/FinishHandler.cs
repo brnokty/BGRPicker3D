@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class FinishHandler : MonoBehaviour
 {
+    #region INSPECTOR PROPERTIES
+
     [SerializeField] private Transform ObjectPos;
     [SerializeField] private List<Material> materials = new List<Material>();
 
+    #endregion
+
+    #region PUBLIC METHODS
 
     public void FinishEffect(Transform obj)
     {
@@ -25,6 +30,10 @@ public class FinishHandler : MonoBehaviour
     {
         StartCoroutine(EffectCoroutine(objects));
     }
+
+    #endregion
+
+    #region PRIVATE METHODS
 
     private IEnumerator EffectCoroutine(RaycastHit[] objects)
     {
@@ -47,4 +56,6 @@ public class FinishHandler : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         MainManager.Instance.EventRunner.Win();
     }
+
+    #endregion
 }
